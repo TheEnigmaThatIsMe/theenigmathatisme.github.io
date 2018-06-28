@@ -21,6 +21,7 @@ img {
 
 a {
 	color: #E7746F;
+    cursor: pointer;
 }
 
 a:hover {
@@ -230,7 +231,7 @@ textarea.form-control {
 /* ---------------------------------------------- */
 
 .pfblock {
-	padding: 120px 0 180px;
+	padding: 120px 0 200px;
 }
 
 .pfblock-gray {
