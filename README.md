@@ -1,5 +1,3 @@
-# georgegilmartin.me
-Professional Website
-
-This website is a professional extension of myself. I intend it to be used as such.
-
+# George Gilmartin
+## Senior Software Engineer
+### [LinkedIn](https://www.linkedin.com/in/ggilmartin/) | [GitHub](https://github.com/theenigmathatisme) | [Resume](https://www.linkedin.com/in/ggilmartin/overlay/1736194321518/single-media-viewer/?profileId=ACoAAAvnPFMB5Sxdw3-fT-0SPb-rCuOE3vairbs)
