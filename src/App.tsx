@@ -1,9 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Portfolio from "./components/Portfolio";
-import Contact from "./components/Contact";
+import Hero from "./pages/Hero";
+import Portfolio from "./pages/Portfolio";
+import Contact from "./pages/Contact";
 import Footer from "./components/Footer";
 import { Box } from "@mui/material";
 
