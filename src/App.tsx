@@ -12,7 +12,7 @@ const App: React.FC = () => {
         <Router>
             <Box display="flex" flexDirection="column" minHeight="100vh">
                 <Header />
-                <Box component="main" flexGrow={1}>
+                <Box component="main" flexGrow={1} mt={8} mb={8}>
                     <Routes>
                         <Route path="/" element={<Hero />} />
                         <Route path="/portfolio" element={<Portfolio />} />

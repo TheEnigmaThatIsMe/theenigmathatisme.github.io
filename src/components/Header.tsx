@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 const Header: React.FC = () => {
     return (
-        <AppBar position="fixed">
+        <AppBar position="fixed" sx={{ top: 0 }}>
             <Toolbar>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                     <NavLink to="/" style={{ textDecoration: 'none', color: 'inherit' }}>

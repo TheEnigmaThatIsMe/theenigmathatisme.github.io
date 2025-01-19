@@ -2,6 +2,7 @@ import React from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Box, Container, Typography } from "@mui/material";
 import theme from "../theme";
+import {red} from "@mui/material/colors";
 
 const Footer: React.FC = () => {
     return (
@@ -21,7 +22,7 @@ const Footer: React.FC = () => {
         >
             <Container>
                 <Typography variant="body1">
-                    Made with <FavoriteIcon sx={{ color: theme.accent }} /> in the U.S.A. &copy; 2025 George Gilmartin
+                    Made with <FavoriteIcon sx={{ color: red["500"] }} /> in the U.S.A. &copy; 2025 George Gilmartin
                 </Typography>
             </Container>
         </Box>
