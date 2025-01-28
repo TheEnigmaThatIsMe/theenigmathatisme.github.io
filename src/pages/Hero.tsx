@@ -6,22 +6,18 @@ import Highlights from "./Highlights.tsx";
 const Hero: React.FC = () => {
     return (
         <Box
-            component="section"
-            mt={-6} mb={-8} // These negative margins are used to offset the Header component
             sx={{
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
-                minHeight: "100vh",
                 textAlign: "center",
-                backgroundColor: "#f5f5f5",
             }}
         >
-            <Typography variant="h2" gutterBottom>
+            <Typography variant="h2">
                 Hi, I'm George Gilmartin
             </Typography>
-            <Stack direction="row" spacing={2} sx={{ marginTop: "1rem", marginBottom: "2rem" }}>
+            <Stack direction="row" spacing={2} sx={{ padding: "1rem" }}>
                 <Button variant="contained" color="primary" href="/portfolio">
                     View My Work
                 </Button>

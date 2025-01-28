@@ -11,7 +11,7 @@ const AboutMe: React.FC = () => {
                 textAlign: "center",
             }}
         >
-            <Typography variant="h4" gutterBottom>
+            <Typography variant="h4">
                 About Me
             </Typography>
             <Typography variant="body1" color="textSecondary" component="p">
@@ -23,7 +23,7 @@ const AboutMe: React.FC = () => {
                 During my tenure at AT&T, I led projects that saved over $30M annually and significantly improved operational efficiency. At N3TWORK Studios, I contributed to the success of Triumph: Go Infinite, enhancing user retention with cutting-edge gameplay features.
             </Typography>
             <br/>
-            <Typography variant="body1" color="textSecondary">
+            <Typography variant="body1" color="textSecondary" component="p">
                 I am a lifelong learner with dual degrees in Computer Science and Information Technology, complemented by certifications in MongoDB Development and SAFe Agile methodologies.
             </Typography>
         </Box>

@@ -34,10 +34,10 @@ const Highlights: React.FC = () => {
             </Typography>
             <Grid container spacing={3}>
                 {projects.map((project, index) => (
-                    <Grid size={4} key={index}>
+                    <Grid size={{ xs: 12, sm: 4 }} key={index}>
                         <Card sx={{ height: "100%" }}>
                             <CardContent>
-                                <Typography variant="h6" gutterBottom>
+                                <Typography variant="h6">
                                     {project.title}
                                 </Typography>
                                 <Typography variant="body2" color="textSecondary" component="p">

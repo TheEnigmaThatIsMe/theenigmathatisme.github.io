@@ -34,7 +34,7 @@ const Portfolio: React.FC = () => {
 
     return (
         <section id="portfolio">
-            <Typography variant="h4" align="center" gutterBottom>
+            <Typography variant="h4" align="center" sx={{ marginBottom: "2em" }}>
                 Personal Portfolio
             </Typography>
             {error ? (
@@ -44,10 +44,10 @@ const Portfolio: React.FC = () => {
             ) : (
                 <Grid container spacing={3}>
                     {repos.map((repo) => (
-                        <Grid size={4} key={repo.id}>
+                        <Grid size={{ xs: 12, sm: 4 }} key={repo.id}>
                             <Card>
                                 <CardContent>
-                                    <Typography variant="h6" gutterBottom>
+                                    <Typography variant="h6">
                                         {repo.name}
                                     </Typography>
                                     <Typography variant="body2" color="textSecondary">
