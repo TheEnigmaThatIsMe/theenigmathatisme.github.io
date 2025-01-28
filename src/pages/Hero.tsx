@@ -2,6 +2,8 @@ import React from "react";
 import { Box, Typography, Button, Stack } from "@mui/material";
 import AboutMe from "./AboutMe.tsx";
 import Highlights from "./Highlights.tsx";
+import {NavLink} from "react-router-dom";
+import resume from "../assets/Gilmartin_Resume.pdf";
 
 const Hero: React.FC = () => {
     return (
@@ -18,10 +20,10 @@ const Hero: React.FC = () => {
                 Hi, I'm George Gilmartin
             </Typography>
             <Stack direction="row" spacing={2} sx={{ padding: "1rem" }}>
-                <Button variant="contained" color="primary" href="/portfolio">
+                <Button variant="contained" color="primary" component={NavLink} to="/portfolio">
                     View My Work
                 </Button>
-                <Button variant="outlined" href="src/assets/Gilmartin_Resume.pdf" download>
+                <Button variant="outlined" href={resume} download>
                     Download Resume
                 </Button>
                 <Button variant="outlined" href="https://www.linkedin.com/in/ggilmartin" target="_blank" rel="noopener noreferrer">
