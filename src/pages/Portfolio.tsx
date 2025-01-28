@@ -64,6 +64,19 @@ const Portfolio: React.FC = () => {
                                     >
                                         View on GitHub
                                     </Button>
+                                    { (repo.name.toLowerCase() === "TerraQuake".toLowerCase()) ? (
+                                        // This can be updated to include more projects later
+                                            <Button
+                                                size="small"
+                                                color="primary"
+                                                href={`https://theenigmathatisme.github.io/${repo.name}/`}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                View Live
+                                            </Button>
+                                    ) : <></>
+                                    }
                                 </CardActions>
                             </Card>
                         </Grid>
