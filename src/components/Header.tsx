@@ -7,7 +7,7 @@ const Header: React.FC = () => {
     const isSmallScreen = useMediaQuery('(max-width:600px)');
 
     return (
-        <AppBar position="relative" sx={{ top: 0 }}>
+        <AppBar position="relative" sx={{ top: 0, zIndex: 1000 }}>
             <Toolbar>
                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                     <NavLink to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
