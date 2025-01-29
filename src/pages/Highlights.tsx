@@ -7,35 +7,45 @@ const Highlights: React.FC = () => {
         {
             title: "Triumph: Go Infinite",
             company: "N3TWORK Studios",
+            location: "Remote",
             position: "Senior Software Engineer",
+            technologies: "Java/Spring/Gradle, C#, Python, Go, React/TypeScript AWS, Redis, DynamoDB, Thrift, TestNG",
             description:
-                "Contributed to the backend development of a mobile RPG game with 2,000+ daily active users. Achieved significant performance optimizations, including an 84% reduction in simulation server packet size.",
+            "Supported the game's soft launch, scaling to 2,000+ daily active users, while optimizing backend efficiency by reducing simulation server packet size by 84%, server configuration file size by 73%, and client configuration file size by 25%. Additionally, implemented customer support tooling in React, enhancing player support and operational efficiency.",
         },
         {
             title: "MechID Bot",
             company: "AT&T",
+            location: "Remote",
             position: "Senior Software Engineer",
+            technologies: "Java/Spring/Maven, microServices, Azure, Sonar, jUnit",
             description:
                 "Spearheaded the development of an enterprise monitoring solution that tracks expiring credentials like passwords and SSL certificates, ensuring proactive renewals and improving operational efficiency by 500%. Enhanced company-wide site reliability by automating email and messaging alerts to teams",
         },
         {
             title: "Message Queue Bridge",
             company: "AT&T",
+            location: "Remote",
             position: "Senior Software Engineer",
+            technologies: "Java/Spring/Maven, microServices, Azure, jUnit, Kubernetes/Helm, Kafka",
             description:
                 "Designed and implemented a Kafka-based event-driven architecture enabling real-time communication between on-premise and cloud-based applications, reducing company costs by $10M+ annually. Led discussions on scalability, resiliency, and maintainability, ensuring a robust and future-proof system",
         },
         {
             title: "9-1-1 Public Safety Platform",
             company: "AT&T",
+            location: "Chicago, IL",
             position: "Professional Software Engineer",
+            technologies: "Java/Spring/Maven, Oracle SQL, Redis, jUnit, Jenkins, Kubernetes",
             description:
                 "Contributed to the development of E911 services, ensuring precise location delivery with 99.999% uptime and sub-1-second response times. Helped reduce costs by $21M+ annually by developing services in-house and integrating key public safety protocols",
         },
         {
             title: "Bolt (Financial Operations)",
             company: "AT&T",
+            location: "Chicago, IL",
             position: "Professional Software Engineer",
+            technologies: "Java/Spring/Maven, AngularJS, HTML/CSS, Oracle SQL, Sonar, jUnit, Jenkins",
             description:
                 "Enhanced a financial tracking tool managing PTO, time entry, and billing by implementing backend optimizations and front-end enhancements. Improved test coverage to over 90% and streamlined CI/CD deployments ",
         },
@@ -52,8 +62,9 @@ const Highlights: React.FC = () => {
                 Career Highlights
             </Typography>
             <Typography variant="body1" color="textSecondary" component="p" sx={{ fontFamily: "Montserrat Variable", marginBottom:"1em" }}>
-                During my time at N3TWORK Studios, I played a key role in the success of Triumph: Go Infinite,
-                driving user retention through innovative gameplay features.
+                During my time at N3TWORK Studios, I was a key contributor to the backend development of
+                Triumph: Go Infinite, a mobile RPG designed to captivate players with strategic hero and gear collection,
+                dynamic weekly events, and engaging gameplay.
             </Typography>
             <Typography variant="body1" color="textSecondary" component="p" sx={{ fontFamily: "Montserrat Variable", marginBottom:"1em" }}>
                 At AT&T, I led and contributed to multiple high-impact projects that drove efficiency, reduced costs,
@@ -67,12 +78,15 @@ const Highlights: React.FC = () => {
                         <Card sx={{ height: "100%", backgroundColor: "#fafafa" }}>
                             <CardContent>
                                 <Typography variant="h6" sx={{ fontFamily: "Bebas Neue" }}>
-                                    {project.title} - {project.company}
+                                    {project.title} - {project.company} ({project.location})
                                 </Typography>
                                 <Typography variant="subtitle2" sx={{ fontFamily: "Montserrat Variable" }}>
                                     {project.position}
                                 </Typography>
-                                <Typography variant="body2" color="textSecondary" component="p" sx={{ fontFamily: "Montserrat Variable" }}>
+                                <Typography variant="body2" sx={{ paddingTop: "1em", fontFamily: "Montserrat Variable" }}>
+                                    Technologies: {project.technologies}
+                                </Typography>
+                                <Typography variant="body2" color="textSecondary" component="p" sx={{ paddingTop: "1em", fontFamily: "Montserrat Variable" }}>
                                     {project.description}
                                 </Typography>
                             </CardContent>
