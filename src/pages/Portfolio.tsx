@@ -1,27 +1,27 @@
 import React, { useEffect, useState } from "react";
-import { Card, CardContent, Typography, CardActions, Button } from "@mui/material";
+import {Typography, Box} from "@mui/material";
 import Grid from '@mui/material/Grid2';
-
-type Repo = {
-    id: number;
-    name: string;
-    html_url: string;
-    description: string;
-    updated_at: string;
-};
+import {ApiError, Repo} from "../types/types.ts";
+import {PortfolioItem} from "../components/PortfolioItem.tsx";
 
 const Portfolio: React.FC = () => {
     const [repos, setRepos] = useState<Repo[]>([]);
-    const [error, setError] = useState<string | null>(null);
+    const [repoError, setRepoError] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchRepos = async () => {
             try {
                 const response = await fetch("https://api.github.com/users/theenigmathatisme/repos");
-                const data: Repo[] = await response.json();
-                setRepos(sortRepos(data));
+                if(response.status === 200) {
+                    const data: Repo[] = await response.json();
+                    setRepos(sortRepos(data));
+                } else {
+                    const data: ApiError = await response.json();
+                    setRepoError(data.message);
+                }
             } catch (err) {
-                setError((err as Error).message);
+                setRepoError((err as Error).message);
+                console.log(repoError);
             }
         };
 
@@ -33,57 +33,28 @@ const Portfolio: React.FC = () => {
     }
 
     return (
-        <section id="portfolio">
-            <Typography variant="h4" align="center" sx={{ marginBottom: "2em" }}>
+        <Box component={"section"} sx={{ padding: "2rem" }}>
+            <Typography variant="h4" align="left" sx={{ marginBottom: "1em", fontFamily: "Bebas Neue" }}>
                 Personal Portfolio
             </Typography>
-            {error ? (
+            <Typography variant="body1" align="left" sx={{ marginBottom: "2em", fontFamily: "Montserrat Variable" }}>
+                Explore my development projects, showcasing my skills in web development, software engineering, and problem solving.
+                Each project highlights my work across both front-end and backend-end development.
+            </Typography>
+            {repoError ? (
                 <Typography color="error" align="center">
-                    Error: {error}
+                    Error: {repoError}
                 </Typography>
             ) : (
                 <Grid container spacing={3}>
                     {repos.map((repo) => (
                         <Grid size={{ xs: 12, sm: 4 }} key={repo.id}>
-                            <Card>
-                                <CardContent>
-                                    <Typography variant="h6">
-                                        {repo.name}
-                                    </Typography>
-                                    <Typography variant="body2" color="textSecondary">
-                                        {repo.description || "No description available."}
-                                    </Typography>
-                                </CardContent>
-                                <CardActions>
-                                    <Button
-                                        size="small"
-                                        color="primary"
-                                        href={repo.html_url}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        View on GitHub
-                                    </Button>
-                                    { (repo.name.toLowerCase() === "TerraQuake".toLowerCase()) ? (
-                                        // This can be updated to include more projects later
-                                            <Button
-                                                size="small"
-                                                color="primary"
-                                                href={`https://theenigmathatisme.github.io/${repo.name}/`}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                            >
-                                                View Live
-                                            </Button>
-                                    ) : <></>
-                                    }
-                                </CardActions>
-                            </Card>
+                            <PortfolioItem repo={repo} />
                         </Grid>
                     ))}
                 </Grid>
             )}
-        </section>
+        </Box>
     );
 };
 

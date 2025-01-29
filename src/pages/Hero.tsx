@@ -1,9 +1,10 @@
 import React from "react";
-import { Box, Typography, Button, Stack } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import AboutMe from "./AboutMe.tsx";
 import Highlights from "./Highlights.tsx";
-import {NavLink} from "react-router-dom";
-import resume from "../assets/Gilmartin_Resume.pdf";
+import Portfolio from "./Portfolio.tsx";
+import "@fontsource/bebas-neue/400.css";
+import "@fontsource-variable/montserrat/wght.css";
 
 const Hero: React.FC = () => {
     return (
@@ -11,27 +12,21 @@ const Hero: React.FC = () => {
             sx={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                textAlign: "center",
+                alignItems: "left",
+                justifyContent: "left",
+                textAlign: "left",
+                paddingLeft: "1rem",
             }}
         >
-            <Typography variant="h2">
-                Hi, I'm George Gilmartin
+            <Typography variant="h1" sx={{ fontFamily: "Bebas Neue" }}>
+                George Gilmartin
             </Typography>
-            <Stack direction="row" spacing={2} sx={{ padding: "1rem" }}>
-                <Button variant="contained" color="primary" component={NavLink} to="/portfolio">
-                    View My Work
-                </Button>
-                <Button variant="outlined" href={resume} download>
-                    Download Resume
-                </Button>
-                <Button variant="outlined" href="https://www.linkedin.com/in/ggilmartin" target="_blank" rel="noopener noreferrer">
-                    Get in Touch
-                </Button>
-            </Stack>
+            <Typography variant="h3" sx={{ fontFamily: "Montserrat Variable" }}>
+                Senior Software Engineer
+            </Typography>
             <AboutMe />
             <Highlights />
+            <Portfolio />
         </Box>
     );
 };
