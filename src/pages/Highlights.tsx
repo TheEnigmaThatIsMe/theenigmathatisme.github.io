@@ -9,7 +9,7 @@ const Highlights: React.FC = () => {
             company: "N3TWORK Studios",
             location: "Remote",
             position: "Senior Software Engineer",
-            technologies: "Java/Spring/Gradle, C#, Python, Go, React/TypeScript AWS, Redis, DynamoDB, Thrift, TestNG",
+            technologies: "Java/Spring/Gradle, C#, Python, Go, React, TypeScript, AWS, Redis, DynamoDB, Thrift, TestNG, Docker, Terraform",
             description:
             "Supported the game's soft launch, scaling to 2,000+ daily active users, while optimizing backend efficiency by reducing simulation server packet size by 84%, server configuration file size by 73%, and client configuration file size by 25%. Additionally, implemented customer support tooling in React, enhancing player support and operational efficiency.",
         },
@@ -18,16 +18,16 @@ const Highlights: React.FC = () => {
             company: "AT&T",
             location: "Remote",
             position: "Senior Software Engineer",
-            technologies: "Java/Spring/Maven, microServices, Azure, Sonar, jUnit",
+            technologies: "Java/Spring/Maven, microServices, Azure, Terraform, React, JUnit, Sonar",
             description:
-                "Spearheaded the development of an enterprise monitoring solution that tracks expiring credentials like passwords and SSL certificates, ensuring proactive renewals and improving operational efficiency by 500%. Enhanced company-wide site reliability by automating email and messaging alerts to teams",
+                "Spearheaded the development of an enterprise monitoring solution that tracks expiring credentials like passwords and SSL certificates, ensuring proactive renewals and decreasing the batch job runtime by 98%. Enhanced company-wide site reliability by automating email and messaging alerts to teams",
         },
         {
             title: "Message Queue Bridge",
             company: "AT&T",
             location: "Remote",
             position: "Senior Software Engineer",
-            technologies: "Java/Spring/Maven, microServices, Azure, jUnit, Kubernetes/Helm, Kafka",
+            technologies: "Java/Spring/Maven, microServices, Azure, Kubernetes/Helm, Kafka, Terraform, JUnit, Sonar",
             description:
                 "Designed and implemented a Kafka-based event-driven architecture enabling real-time communication between on-premise and cloud-based applications, reducing company costs by $10M+ annually. Led discussions on scalability, resiliency, and maintainability, ensuring a robust and future-proof system",
         },
@@ -36,7 +36,7 @@ const Highlights: React.FC = () => {
             company: "AT&T",
             location: "Chicago, IL",
             position: "Professional Software Engineer",
-            technologies: "Java/Spring/Maven, Oracle SQL, Redis, jUnit, Jenkins, Kubernetes",
+            technologies: "Java/Spring/Maven, Oracle SQL, Redis, Jenkins, Kubernetes, JUnit",
             description:
                 "Contributed to the development of E911 services, ensuring precise location delivery with 99.999% uptime and sub-1-second response times. Helped reduce costs by $21M+ annually by developing services in-house and integrating key public safety protocols",
         },
@@ -45,7 +45,7 @@ const Highlights: React.FC = () => {
             company: "AT&T",
             location: "Chicago, IL",
             position: "Professional Software Engineer",
-            technologies: "Java/Spring/Maven, AngularJS, HTML/CSS, Oracle SQL, Sonar, jUnit, Jenkins",
+            technologies: "Java/Spring/Maven, AngularJS, HTML/CSS, Oracle SQL, Jenkins, Sonar, JUnit",
             description:
                 "Enhanced a financial tracking tool managing PTO, time entry, and billing by implementing backend optimizations and front-end enhancements. Improved test coverage to over 90% and streamlined CI/CD deployments ",
         },
