@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {Typography, Box} from "@mui/material";
-import Grid from '@mui/material/Grid2';
+import { Grid } from "@mui/material";
 import {ApiError, Repo} from "../types/types.ts";
 import {PortfolioItem} from "../components/PortfolioItem.tsx";
 

@@ -6,6 +6,12 @@ type PortfolioItemProps = {
     repo: Repo;
 };
 
+// List of repositories that have live demos on GitHub Pages
+const REPOS_WITH_LIVE_DEMOS = [
+    "TerraQuake",
+    "RandomSubjectLine",
+];
+
 export const PortfolioItem: React.FC<PortfolioItemProps> = ({repo}: PortfolioItemProps) => {
     const [languageError, setLanguageError] = useState<string | null>(null);
     const [languages, setLanguages] = useState<{ [key: string]: Language }>({});
@@ -28,6 +34,10 @@ export const PortfolioItem: React.FC<PortfolioItemProps> = ({repo}: PortfolioIte
         };
         fetchLanguages(repo.name);
     }, [repo]);
+
+    const hasLiveDemo = REPOS_WITH_LIVE_DEMOS.some(
+        repoName => repoName.toLowerCase() === repo.name.toLowerCase()
+    );
 
     return (
         <Card variant={"outlined"} sx={{height: "100%", backgroundColor: "#fafafa"}}>
@@ -53,8 +63,7 @@ export const PortfolioItem: React.FC<PortfolioItemProps> = ({repo}: PortfolioIte
                 >
                     View on GitHub
                 </Button>
-                {(repo.name.toLowerCase() === "TerraQuake".toLowerCase()) ? (
-                    // This can be updated to include more projects later
+                {hasLiveDemo && (
                     <Button
                         size="small"
                         variant="outlined"
@@ -65,8 +74,7 @@ export const PortfolioItem: React.FC<PortfolioItemProps> = ({repo}: PortfolioIte
                     >
                         View Live
                     </Button>
-                ) : <></>
-                }
+                )}
             </CardActions>
         </Card>
     );
