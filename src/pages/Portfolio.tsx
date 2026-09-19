@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Box, Grid, Link, Skeleton, Typography } from "@mui/material";
 import { Repo, RepoData } from "../types/types.ts";
 import { PortfolioItem } from "../components/PortfolioItem.tsx";
+import { curateRepos } from "../data/portfolio.ts";
 
 // Generated at build time by scripts/fetch-repos.mjs.
 const REPO_DATA_URL = `${import.meta.env.BASE_URL}repos.json`;
@@ -19,7 +20,7 @@ const Portfolio: React.FC = () => {
                 if (!response.ok) throw new Error(`${response.status} ${response.statusText} loading ${REPO_DATA_URL}`);
                 return response.json() as Promise<RepoData>;
             })
-            .then((data) => setRepos(data.repos))
+            .then((data) => setRepos(curateRepos(data.repos)))
             .catch((err: unknown) => {
                 if ((err as Error).name === "AbortError") return;
                 console.error(err);
