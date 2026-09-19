@@ -6,6 +6,10 @@ on:
   push:
     branches: ['master']
 
+  # Weekly rebuild so the project list picks up new repositories without a push
+  schedule:
+    - cron: '0 12 * * 1'
+
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -33,10 +37,14 @@ jobs:
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'npm'
       - name: Install dependencies
-        run: npm install --ignore-platform
+        run: npm ci
+      - name: Fetch repository data
+        run: npm run fetch-repos
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Build
         run: npm run build
       - name: Setup Pages

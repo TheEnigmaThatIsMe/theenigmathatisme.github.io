@@ -12,8 +12,6 @@ const Hero: React.FC = () => {
             sx={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "left",
-                justifyContent: "left",
                 textAlign: "left",
                 paddingLeft: "1rem",
             }}
@@ -21,7 +19,7 @@ const Hero: React.FC = () => {
             <Typography variant="h1" sx={{ fontFamily: "Bebas Neue" }}>
                 George Gilmartin
             </Typography>
-            <Typography variant="h3" sx={{ fontFamily: "Montserrat Variable" }}>
+            <Typography variant="h3" component="p" sx={{ fontFamily: "Montserrat Variable" }}>
                 Senior Software Engineer
             </Typography>
             <AboutMe />

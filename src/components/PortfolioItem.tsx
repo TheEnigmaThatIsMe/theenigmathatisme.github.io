@@ -1,56 +1,39 @@
-import React, {useEffect, useState} from "react";
-import {Button, Card, CardActions, CardContent, Typography} from "@mui/material";
-import {ApiError, Language, Repo} from "../types/types.ts";
+import React from "react";
+import { Button, Card, CardActions, CardContent, Typography } from "@mui/material";
+import { Repo } from "../types/types.ts";
 
 type PortfolioItemProps = {
     repo: Repo;
 };
 
-// List of repositories that have live demos on GitHub Pages
-const REPOS_WITH_LIVE_DEMOS = [
-    "TerraQuake",
-    "RandomSubjectLine",
-];
+const GITHUB_PAGES_ORIGIN = "https://theenigmathatisme.github.io";
 
-export const PortfolioItem: React.FC<PortfolioItemProps> = ({repo}: PortfolioItemProps) => {
-    const [languageError, setLanguageError] = useState<string | null>(null);
-    const [languages, setLanguages] = useState<{ [key: string]: Language }>({});
+// A repo with a homepage set, or with GitHub Pages enabled, has something to show live.
+const liveUrlFor = (repo: Repo): string | null => {
+    if (repo.homepage) return repo.homepage;
+    if (repo.has_pages) return `${GITHUB_PAGES_ORIGIN}/${repo.name}/`;
+    return null;
+};
 
-    useEffect(() => {
-        const fetchLanguages = async (repoName: string) => {
-            try {
-                const response = await fetch(`https://api.github.com/repos/TheEnigmaThatIsMe/${repoName}/languages`);
-                if (response.status === 200) {
-                    const data: Language = await response.json();
-                    setLanguages(prevLanguages => ({...prevLanguages, [repoName]: data}));
-                } else {
-                    const data: ApiError = await response.json();
-                    setLanguageError(data.message);
-                }
-            } catch (err) {
-                setLanguageError((err as Error).message);
-                console.log(languageError);
-            }
-        };
-        fetchLanguages(repo.name);
-    }, [repo]);
-
-    const hasLiveDemo = REPOS_WITH_LIVE_DEMOS.some(
-        repoName => repoName.toLowerCase() === repo.name.toLowerCase()
-    );
+export const PortfolioItem: React.FC<PortfolioItemProps> = ({ repo }) => {
+    const liveUrl = liveUrlFor(repo);
 
     return (
-        <Card variant={"outlined"} sx={{height: "100%", backgroundColor: "#fafafa"}}>
+        <Card variant="outlined" sx={{ height: "100%", backgroundColor: "#fafafa" }}>
             <CardContent>
-                <Typography variant="h6" sx={{fontFamily: "Bebas Neue"}}>
+                <Typography variant="h6" component="h3" sx={{ fontFamily: "Bebas Neue" }}>
                     {repo.name}
                 </Typography>
-                <Typography variant="body2" color="textSecondary" sx={{fontFamily: "Montserrat Variable"}}>
-                    {repo.description || ""}
-                </Typography>
-                <Typography variant={"body2"} color="textSecondary" sx={{fontFamily: "Montserrat Variable"}}>
-                    Technologies: {languages[repo.name] ? Object.keys(languages[repo.name]).join(", ") : languageError}
-                </Typography>
+                {repo.description && (
+                    <Typography variant="body2" color="textSecondary" sx={{ fontFamily: "Montserrat Variable" }}>
+                        {repo.description}
+                    </Typography>
+                )}
+                {repo.languages.length > 0 && (
+                    <Typography variant="body2" color="textSecondary" sx={{ fontFamily: "Montserrat Variable" }}>
+                        Technologies: {repo.languages.join(", ")}
+                    </Typography>
+                )}
             </CardContent>
             <CardActions>
                 <Button
@@ -63,12 +46,12 @@ export const PortfolioItem: React.FC<PortfolioItemProps> = ({repo}: PortfolioIte
                 >
                     View on GitHub
                 </Button>
-                {hasLiveDemo && (
+                {liveUrl && (
                     <Button
                         size="small"
                         variant="outlined"
                         color="primary"
-                        href={`https://theenigmathatisme.github.io/${repo.name}/`}
+                        href={liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -78,4 +61,4 @@ export const PortfolioItem: React.FC<PortfolioItemProps> = ({repo}: PortfolioIte
             </CardActions>
         </Card>
     );
-}
+};

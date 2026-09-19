@@ -14,7 +14,7 @@ const AboutMe: React.FC = () => {
                         textAlign: "left",
                     }}
                 >
-                    <Typography variant="h4" sx={{ fontFamily: "Bebas Neue" }}>
+                    <Typography variant="h4" component="h2" sx={{ fontFamily: "Bebas Neue" }}>
                         About Me
                     </Typography>
                     <Typography variant="body1" color="textSecondary" component="p" sx={{ fontFamily: "Montserrat Variable" }}>
@@ -47,7 +47,7 @@ const AboutMe: React.FC = () => {
                          padding: "2rem 2rem 1rem 2rem",
                          textAlign: "left",
                      }}>
-                    <Typography variant="h4" sx={{ fontFamily: "Bebas Neue" }}>
+                    <Typography variant="h4" component="h2" sx={{ fontFamily: "Bebas Neue" }}>
                         Skills
                     </Typography>
                     <Typography variant="body1" color="textSecondary" component="p" sx={{ fontFamily: "Montserrat Variable" }}>
@@ -69,7 +69,7 @@ const AboutMe: React.FC = () => {
                         Python (3 years)
                     </Typography>
                     <Typography variant="body1" color="textSecondary" component="p" sx={{ fontFamily: "Montserrat Variable" }}>
-                        Go (1 years)
+                        Go (1 year)
                     </Typography>
                 </Box>
             </Grid>
