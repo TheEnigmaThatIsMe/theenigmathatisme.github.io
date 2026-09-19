@@ -70,8 +70,7 @@ const Portfolio: React.FC = () => {
                 Personal Portfolio
             </Typography>
             <Typography variant="body1" color="text.secondary" sx={{ maxWidth: "68ch", mb: 4 }}>
-                Explore my development projects, showcasing my skills in web development, software engineering, and
-                problem solving. Each project highlights my work across both front-end and backend development.
+                Personal projects, from a browser game I still tinker with to coursework from a decade ago.
             </Typography>
             {content}
         </Box>

@@ -1,15 +1,6 @@
 import React from "react";
 import { Grid, Stack, Typography } from "@mui/material";
-
-const skills = [
-    "Java / Spring (7 years)",
-    "Backend Development (7 years)",
-    "API Development (7 years)",
-    "Web Development (5 years)",
-    "Full Stack Development (5 years)",
-    "Python (3 years)",
-    "Go (1 year)",
-];
+import { skillGroups } from "../data/skills.ts";
 
 const AboutMe: React.FC = () => {
     return (
@@ -20,24 +11,16 @@ const AboutMe: React.FC = () => {
                 </Typography>
                 <Stack spacing={2} sx={{ maxWidth: "68ch" }}>
                     <Typography variant="body1" color="text.secondary">
-                        A passionate engineer with expertise in backend development, API integration, and
-                        event-driven architecture. I excel in creating scalable, high-performance systems.
-                        With over 7 years of experience in backend and API development, I have a proven track
-                        record of delivering impactful solutions in various domains from game studios, public
-                        safety platforms, and financial operations.
+                        The domains have changed more than the work has: financial operations and public safety
+                        dispatch at AT&amp;T, then live services for mobile games at N3TWORK. Nearly a decade of
+                        it comes down to the same two questions &mdash; can the system take real traffic without
+                        falling over, and can it run for less than it did last year. The answers tend to be
+                        unglamorous: better queueing, fewer round trips, tests that fail when something is
+                        actually broken.
                     </Typography>
                     <Typography variant="body1" color="text.secondary">
-                        I am driven by a passion for clean, maintainable code, I strive to build scalable
-                        solutions that not only enhance user experience but also drive significant business
-                        growth and cost savings. My goal is to create innovative, high-impact systems that
-                        transform products and industries, delivering meaningful change through technology.
-                    </Typography>
-                    <Typography variant="body1" color="text.secondary">
-                        I am a lifelong learner with dual degrees in Computer Science and Information
-                        Technology, along with minors in Math and Business. Complementing my academic
-                        background, I hold certifications in MongoDB Development and SAFe Agile methodologies.
-                        Committed to continuous growth, I stay at the forefront of emerging technologies and
-                        best practices to consistently deliver innovative, high-impact solutions.
+                        Dual degrees in Computer Science and Information Technology, with minors in Math and
+                        Business. Certified in MongoDB Development and SAFe Agile.
                     </Typography>
                 </Stack>
             </Grid>
@@ -45,11 +28,34 @@ const AboutMe: React.FC = () => {
                 <Typography variant="h2" gutterBottom>
                     Skills
                 </Typography>
-                <Stack component="ul" spacing={0.5} sx={{ listStyle: "none", m: 0, p: 0 }}>
-                    {skills.map((skill) => (
-                        <Typography key={skill} component="li" variant="body1" color="text.secondary">
-                            {skill}
-                        </Typography>
+                <Stack spacing={2.5} sx={{ mt: 1 }}>
+                    {skillGroups.map((group) => (
+                        <Stack key={group.heading} spacing={0.5}>
+                            <Typography variant="body1" component="h3" sx={{ fontWeight: 600 }}>
+                                {group.heading}
+                            </Typography>
+                            <Stack
+                                component="ul"
+                                direction="row"
+                                useFlexGap
+                                flexWrap="wrap"
+                                sx={{
+                                    listStyle: "none",
+                                    m: 0,
+                                    p: 0,
+                                    columnGap: 0.75,
+                                    rowGap: 0.25,
+                                    // Commas come from CSS so the markup stays a real list.
+                                    "& li:not(:last-of-type)::after": { content: '","' },
+                                }}
+                            >
+                                {group.skills.map((skill) => (
+                                    <Typography key={skill} component="li" variant="body1" color="text.secondary">
+                                        {skill}
+                                    </Typography>
+                                ))}
+                            </Stack>
+                        </Stack>
                     ))}
                 </Stack>
             </Grid>
