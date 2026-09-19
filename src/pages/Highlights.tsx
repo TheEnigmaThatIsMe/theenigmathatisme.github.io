@@ -5,7 +5,7 @@ import { Grid } from "@mui/material";
 const Highlights: React.FC = () => {
     const projects = [
         {
-            title: "Legnedary Heroes Unchained",
+            title: "Legendary Heroes Unchained",
             company: "N3TWORK Studios",
             location: "Remote",
             position: "Senior Software Engineer",
@@ -76,13 +76,13 @@ const Highlights: React.FC = () => {
                 padding: "0.5rem 2rem 0.5rem 2rem",
             }}
         >
-            <Typography variant="h4" gutterBottom align="left" sx={{ fontFamily: "Bebas Neue" }}>
+            <Typography variant="h4" component="h2" gutterBottom align="left" sx={{ fontFamily: "Bebas Neue" }}>
                 Career Highlights
             </Typography>
             <Typography variant="body1" color="textSecondary" component="p" sx={{ fontFamily: "Montserrat Variable", marginBottom:"1em" }}>
-                During my time at N3TWORK Studios, I was a key contributor to the backend development of <a href="https://www.n3twork.com/triumph/" target="_blank">Triumph: Go Infinite</a>, a mobile RPG built around strategic hero and gear collection, dynamic weekly events, and engaging gameplay. 
+                During my time at N3TWORK Studios, I was a key contributor to the backend development of <a href="https://www.n3twork.com/triumph/" target="_blank" rel="noopener noreferrer">Triumph: Go Infinite</a>, a mobile RPG built around strategic hero and gear collection, dynamic weekly events, and engaging gameplay. 
                 I also led backend efforts on the AI Game Feed, a scalable content delivery system powering personalized updates and recommendations across live titles. 
-                Additionally, I contributed to the redesign of <a href="https://www.legendaryheroesunchained.com/home" target="_blank">Legendary Heroes Unchained</a>, expanding into Unity and Web3 by integrating smart contracts written in Solidity to enable on-chain progression and asset ownership.
+                Additionally, I contributed to the redesign of <a href="https://www.legendaryheroesunchained.com/home" target="_blank" rel="noopener noreferrer">Legendary Heroes Unchained</a>, expanding into Unity and Web3 by integrating smart contracts written in Solidity to enable on-chain progression and asset ownership.
             </Typography>
             <Typography variant="body1" color="textSecondary" component="p" sx={{ fontFamily: "Montserrat Variable", marginBottom:"1em" }}>
                 At AT&T, I led and contributed to multiple high-impact projects that drove efficiency, reduced costs,
@@ -91,14 +91,14 @@ const Highlights: React.FC = () => {
                 and fortifying AT&T’s technical infrastructure.
             </Typography>
             <Grid container spacing={3}>
-                {projects.map((project, _) => (
+                {projects.map((project) => (
                     <Grid size={{ xs: 12, sm: 4 }} key={project.title}>
                         <Card sx={{ height: "100%", backgroundColor: "#fafafa" }}>
                             <CardContent>
-                                <Typography variant="h6" sx={{ fontFamily: "Bebas Neue" }}>
+                                <Typography variant="h6" component="h3" sx={{ fontFamily: "Bebas Neue" }}>
                                     {project.title} - {project.company} ({project.location})
                                 </Typography>
-                                <Typography variant="subtitle2" sx={{ fontFamily: "Montserrat Variable" }}>
+                                <Typography variant="subtitle2" component="p" sx={{ fontFamily: "Montserrat Variable" }}>
                                     {project.position}
                                 </Typography>
                                 <Typography variant="body2" sx={{ paddingTop: "1em", fontFamily: "Montserrat Variable" }}>

@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 .vite
+
+# Working plans for agents (not published)
+plans

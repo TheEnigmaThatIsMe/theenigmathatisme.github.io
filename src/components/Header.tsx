@@ -14,7 +14,7 @@ const Header: React.FC = () => {
             <Toolbar sx={{ display: 'flex', justifyContent: 'end' }}>
                 <Button color="inherit"
                         component={Link}
-                        href={"https://github.com/TheEnigmaThatIsMe/theenigmathatisme.github.io/blob/master/src/assets/Gilmartin_Resume.pdf"}
+                        href={`${import.meta.env.BASE_URL}Gilmartin_Resume.pdf`}
                         target="_blank"
                         rel="noopener noreferrer">
                     Resume
@@ -22,6 +22,7 @@ const Header: React.FC = () => {
                 <IconButton
                     size={"large"}
                     component="a"
+                    aria-label="LinkedIn profile"
                     href="https://www.linkedin.com/in/ggilmartin"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -32,6 +33,7 @@ const Header: React.FC = () => {
                 <IconButton
                     size={"large"}
                     component="a"
+                    aria-label="GitHub profile"
                     href="https://github.com/TheEnigmaThatIsMe"
                     target="_blank"
                     rel="noopener noreferrer"

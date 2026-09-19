@@ -1,59 +1,80 @@
 import React, { useEffect, useState } from "react";
-import {Typography, Box} from "@mui/material";
-import { Grid } from "@mui/material";
-import {ApiError, Repo} from "../types/types.ts";
-import {PortfolioItem} from "../components/PortfolioItem.tsx";
+import { Box, Grid, Link, Skeleton, Typography } from "@mui/material";
+import { Repo, RepoData } from "../types/types.ts";
+import { PortfolioItem } from "../components/PortfolioItem.tsx";
+
+// Generated at build time by scripts/fetch-repos.mjs.
+const REPO_DATA_URL = `${import.meta.env.BASE_URL}repos.json`;
 
 const Portfolio: React.FC = () => {
-    const [repos, setRepos] = useState<Repo[]>([]);
-    const [repoError, setRepoError] = useState<string | null>(null);
+    const [repos, setRepos] = useState<Repo[] | null>(null);
+    const [loadFailed, setLoadFailed] = useState(false);
 
     useEffect(() => {
-        const fetchRepos = async () => {
-            try {
-                const response = await fetch("https://api.github.com/users/theenigmathatisme/repos");
-                if(response.status === 200) {
-                    const data: Repo[] = await response.json();
-                    setRepos(sortRepos(data));
-                } else {
-                    const data: ApiError = await response.json();
-                    setRepoError(data.message);
-                }
-            } catch (err) {
-                setRepoError((err as Error).message);
-                console.log(repoError);
-            }
-        };
-
-        fetchRepos();
+        const controller = new AbortController();
+        fetch(REPO_DATA_URL, { signal: controller.signal })
+            .then((response) => {
+                if (!response.ok) throw new Error(`${response.status} ${response.statusText} loading ${REPO_DATA_URL}`);
+                return response.json() as Promise<RepoData>;
+            })
+            .then((data) => setRepos(data.repos))
+            .catch((err: unknown) => {
+                if ((err as Error).name === "AbortError") return;
+                console.error(err);
+                setLoadFailed(true);
+            });
+        return () => controller.abort();
     }, []);
 
-    const sortRepos = (repos: Repo[]) => {
-        return repos.sort((a, b) => new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime());
+    let content: React.ReactNode;
+    if (loadFailed) {
+        content = (
+            <Typography variant="body1" sx={{ fontFamily: "Montserrat Variable" }}>
+                The project list could not be loaded. You can browse everything on{" "}
+                <Link href="https://github.com/TheEnigmaThatIsMe?tab=repositories" target="_blank" rel="noopener noreferrer">
+                    GitHub
+                </Link>
+                .
+            </Typography>
+        );
+    } else if (repos === null) {
+        content = (
+            <Grid container spacing={3} aria-busy="true" aria-label="Loading projects">
+                {[0, 1, 2].map((i) => (
+                    <Grid size={{ xs: 12, sm: 4 }} key={i}>
+                        <Skeleton variant="rounded" height={160} />
+                    </Grid>
+                ))}
+            </Grid>
+        );
+    } else if (repos.length === 0) {
+        content = (
+            <Typography variant="body1" sx={{ fontFamily: "Montserrat Variable" }}>
+                No projects to show yet.
+            </Typography>
+        );
+    } else {
+        content = (
+            <Grid container spacing={3}>
+                {repos.map((repo) => (
+                    <Grid size={{ xs: 12, sm: 4 }} key={repo.id}>
+                        <PortfolioItem repo={repo} />
+                    </Grid>
+                ))}
+            </Grid>
+        );
     }
 
     return (
-        <Box component={"section"} sx={{ padding: "2rem" }}>
-            <Typography variant="h4" align="left" sx={{ marginBottom: "1em", fontFamily: "Bebas Neue" }}>
+        <Box component="section" sx={{ padding: "2rem" }}>
+            <Typography variant="h4" component="h2" align="left" sx={{ marginBottom: "1em", fontFamily: "Bebas Neue" }}>
                 Personal Portfolio
             </Typography>
             <Typography variant="body1" align="left" sx={{ marginBottom: "2em", fontFamily: "Montserrat Variable" }}>
                 Explore my development projects, showcasing my skills in web development, software engineering, and problem solving.
-                Each project highlights my work across both front-end and backend-end development.
+                Each project highlights my work across both front-end and backend development.
             </Typography>
-            {repoError ? (
-                <Typography color="error" align="center">
-                    Error: {repoError}
-                </Typography>
-            ) : (
-                <Grid container spacing={3}>
-                    {repos.map((repo) => (
-                        <Grid size={{ xs: 12, sm: 4 }} key={repo.id}>
-                            <PortfolioItem repo={repo} />
-                        </Grid>
-                    ))}
-                </Grid>
-            )}
+            {content}
         </Box>
     );
 };

@@ -1,16 +1,19 @@
+// Shape of public/repos.json, produced by scripts/fetch-repos.mjs.
 export type Repo = {
     id: number;
     name: string;
-    html_url: string;
     description: string;
-    updated_at: string;
-    languages_url: string;
+    html_url: string;
+    homepage: string;
+    has_pages: boolean;
+    fork: boolean;
+    archived: boolean;
+    topics: string[];
+    pushed_at: string;
+    languages: string[];
 };
 
-export type Language = {
-    [key: string]: number;
-}
-
-export type ApiError = {
-    message: string;
-}
+export type RepoData = {
+    generated_at: string;
+    repos: Repo[];
+};

@@ -1,0 +1,334 @@
+{
+  "generated_at": "2026-09-19T19:35:44.960Z",
+  "repos": [
+    {
+      "id": 1373742201,
+      "name": "tiny_swords",
+      "description": "Tiny Swords: Last Stand - a browser arena-survival game in vanilla Canvas 2D. Hold an island against the horde until dawn: chain sword swings, dodge lancer charges, level up. Synthesized Web Audio, flow-field pathing, zero dependencies. Art by Pixel Frog.",
+      "html_url": "https://github.com/TheEnigmaThatIsMe/tiny_swords",
+      "homepage": "https://theenigmathatisme.github.io/tiny_swords/",
+      "has_pages": true,
+      "fork": false,
+      "archived": false,
+      "topics": [],
+      "pushed_at": "2026-09-19T19:24:38Z",
+      "languages": [
+        "JavaScript",
+        "Python",
+        "HTML"
+      ]
+    },
+    {
+      "id": 31484884,
+      "name": "RandomSubjectLine",
+      "description": "Random Subject Line Repository",
+      "html_url": "https://github.com/TheEnigmaThatIsMe/RandomSubjectLine",
+      "homepage": "",
+      "has_pages": true,
+      "fork": false,
+      "archived": false,
+      "topics": [],
+      "pushed_at": "2026-01-17T22:54:51Z",
+      "languages": [
+        "TypeScript",
+        "CSS",
+        "JavaScript",
+        "HTML"
+      ]
+    },
+    {
+      "id": 1056351395,
+      "name": "ConnectFour",
+      "description": "A simple Connect 4 game in Java",
+      "html_url": "https://github.com/TheEnigmaThatIsMe/ConnectFour",
+      "homepage": "",
+      "has_pages": false,
+      "fork": false,
+      "archived": false,
+      "topics": [],
+      "pushed_at": "2025-09-13T23:39:30Z",
+      "languages": [
+        "Java"
+      ]
+    },
+    {
+      "id": 1033469665,
+      "name": "BlackJack",
+      "description": "A simple game of Black Jack made in Java",
+      "html_url": "https://github.com/TheEnigmaThatIsMe/BlackJack",
+      "homepage": "",
+      "has_pages": false,
+      "fork": false,
+      "archived": false,
+      "topics": [],
+      "pushed_at": "2025-08-13T16:34:14Z",
+      "languages": [
+        "Java"
+      ]
+    },
+    {
+      "id": 1016977880,
+      "name": "MatchaBlock",
+      "description": "Unity MatchaBlock Project",
+      "html_url": "https://github.com/TheEnigmaThatIsMe/MatchaBlock",
+      "homepage": "",
+      "has_pages": false,
+      "fork": true,
+      "archived": false,
+      "topics": [],
+      "pushed_at": "2025-07-13T23:41:18Z",
+      "languages": [
+        "C#",
+        "ShaderLab",
+        "HLSL",
+        "HTML"
+      ]
+    },
+    {
+      "id": 924937348,
+      "name": "MazeRunnerGo",
+      "description": "A maze runner written in Go that solves for the shortest path",
+      "html_url": "https://github.com/TheEnigmaThatIsMe/MazeRunnerGo",
+      "homepage": "",
+      "has_pages": false,
+      "fork": false,
+      "archived": false,
+      "topics": [],
+      "pushed_at": "2025-02-05T16:46:38Z",
+      "languages": [
+        "Go"
+      ]
+    },
+    {
+      "id": 42690953,
+      "name": "nodeJS-wordFinder",
+      "description": "",
+      "html_url": "https://github.com/TheEnigmaThatIsMe/nodeJS-wordFinder",
+      "homepage": "",
+      "has_pages": false,
+      "fork": false,
+      "archived": false,
+      "topics": [],
+      "pushed_at": "2025-01-31T02:41:41Z",
+      "languages": [
+        "JavaScript",
+        "EJS",
+        "CSS",
+        "Ruby",
+        "Procfile"
+      ]
+    },
+    {
+      "id": 920288518,
+      "name": "go-space-shooter",
+      "description": "A basic space shooter game implemented in Go",
+      "html_url": "https://github.com/TheEnigmaThatIsMe/go-space-shooter",
+      "homepage": "",
+      "has_pages": false,
+      "fork": false,
+      "archived": false,
+      "topics": [],
+      "pushed_at": "2025-01-30T22:54:59Z",
+      "languages": [
+        "Go"
+      ]
+    },
+    {
+      "id": 924866575,
+      "name": "BallotBuddy",
+      "description": "A friendly assistant for election-related information",
+      "html_url": "https://github.com/TheEnigmaThatIsMe/BallotBuddy",
+      "homepage": "",
+      "has_pages": false,
+      "fork": false,
+      "archived": false,
+      "topics": [],
+      "pushed_at": "2025-01-30T22:10:12Z",
+      "languages": [
+        "TypeScript",
+        "CSS",
+        "JavaScript",
+        "HTML"
+      ]
+    },
+    {
+      "id": 917885456,
+      "name": "TerraQuake",
+      "description": "An earthquake map built using React",
+      "html_url": "https://github.com/TheEnigmaThatIsMe/TerraQuake",
+      "homepage": "https://theenigmathatisme.github.io/TerraQuake/",
+      "has_pages": true,
+      "fork": false,
+      "archived": false,
+      "topics": [],
+      "pushed_at": "2025-01-28T22:12:57Z",
+      "languages": [
+        "TypeScript",
+        "CSS",
+        "JavaScript",
+        "HTML"
+      ]
+    },
+    {
+      "id": 142302720,
+      "name": "pong-clone",
+      "description": "This repo is a clone of the game Pong",
+      "html_url": "https://github.com/TheEnigmaThatIsMe/pong-clone",
+      "homepage": "",
+      "has_pages": false,
+      "fork": false,
+      "archived": false,
+      "topics": [],
+      "pushed_at": "2018-07-25T21:22:19Z",
+      "languages": [
+        "JavaScript",
+        "HTML"
+      ]
+    },
+    {
+      "id": 49594920,
+      "name": "Barcode-Scanner",
+      "description": "A basic Barcode Scanner / Metadata reader for Swift 2.0",
+      "html_url": "https://github.com/TheEnigmaThatIsMe/Barcode-Scanner",
+      "homepage": "",
+      "has_pages": false,
+      "fork": false,
+      "archived": false,
+      "topics": [],
+      "pushed_at": "2016-01-13T19:02:36Z",
+      "languages": [
+        "Swift"
+      ]
+    },
+    {
+      "id": 49398483,
+      "name": "Tetromino",
+      "description": "A tetromino puzzle game",
+      "html_url": "https://github.com/TheEnigmaThatIsMe/Tetromino",
+      "homepage": "",
+      "has_pages": false,
+      "fork": false,
+      "archived": false,
+      "topics": [],
+      "pushed_at": "2016-01-11T05:29:22Z",
+      "languages": [
+        "Swift"
+      ]
+    },
+    {
+      "id": 45753118,
+      "name": "VolunteerVortex",
+      "description": "A Swift app to connect volunteers to organizations",
+      "html_url": "https://github.com/TheEnigmaThatIsMe/VolunteerVortex",
+      "homepage": "",
+      "has_pages": false,
+      "fork": false,
+      "archived": false,
+      "topics": [],
+      "pushed_at": "2015-12-15T07:08:09Z",
+      "languages": [
+        "Swift"
+      ]
+    },
+    {
+      "id": 35296026,
+      "name": "Simple_C_Shell",
+      "description": "A simple shell program created in C",
+      "html_url": "https://github.com/TheEnigmaThatIsMe/Simple_C_Shell",
+      "homepage": "",
+      "has_pages": false,
+      "fork": false,
+      "archived": false,
+      "topics": [],
+      "pushed_at": "2015-05-13T17:18:57Z",
+      "languages": [
+        "C",
+        "CMake"
+      ]
+    },
+    {
+      "id": 35352272,
+      "name": "TwitterManager",
+      "description": "This Python program is a mock twitter application",
+      "html_url": "https://github.com/TheEnigmaThatIsMe/TwitterManager",
+      "homepage": "",
+      "has_pages": false,
+      "fork": false,
+      "archived": false,
+      "topics": [],
+      "pushed_at": "2015-05-10T01:29:33Z",
+      "languages": [
+        "Python"
+      ]
+    },
+    {
+      "id": 35352121,
+      "name": "MazeShortestPath",
+      "description": "A C program that finds the shortest path through a maze",
+      "html_url": "https://github.com/TheEnigmaThatIsMe/MazeShortestPath",
+      "homepage": "",
+      "has_pages": false,
+      "fork": false,
+      "archived": false,
+      "topics": [],
+      "pushed_at": "2015-05-10T01:23:35Z",
+      "languages": [
+        "C",
+        "Makefile"
+      ]
+    },
+    {
+      "id": 35351939,
+      "name": "Multi-thread-Matrix-Multiplication",
+      "description": "A C program that performs matrix multiplication using multiple threads",
+      "html_url": "https://github.com/TheEnigmaThatIsMe/Multi-thread-Matrix-Multiplication",
+      "homepage": "",
+      "has_pages": false,
+      "fork": false,
+      "archived": false,
+      "topics": [],
+      "pushed_at": "2015-05-10T01:17:28Z",
+      "languages": [
+        "C",
+        "C++",
+        "Makefile",
+        "Gnuplot"
+      ]
+    },
+    {
+      "id": 30935790,
+      "name": "CS4320_Final_Project",
+      "description": "A recreation of the game RISK as a web application",
+      "html_url": "https://github.com/TheEnigmaThatIsMe/CS4320_Final_Project",
+      "homepage": "",
+      "has_pages": false,
+      "fork": false,
+      "archived": false,
+      "topics": [],
+      "pushed_at": "2015-02-25T04:23:47Z",
+      "languages": [
+        "JavaScript",
+        "PHP",
+        "HTML",
+        "CSS"
+      ]
+    },
+    {
+      "id": 26890311,
+      "name": "CS3380_GroupProject",
+      "description": "Web app for Tony's Pizza",
+      "html_url": "https://github.com/TheEnigmaThatIsMe/CS3380_GroupProject",
+      "homepage": "",
+      "has_pages": false,
+      "fork": false,
+      "archived": false,
+      "topics": [],
+      "pushed_at": "2014-12-08T06:15:21Z",
+      "languages": [
+        "PHP",
+        "CSS",
+        "JavaScript"
+      ]
+    }
+  ]
+}
