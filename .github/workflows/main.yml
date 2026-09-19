@@ -19,10 +19,11 @@ permissions:
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
+# Allow one concurrent deployment, skipping runs queued behind the latest.
+# In-progress deploys are never cancelled: a half-finished deploy publishes a broken site.
 concurrency:
   group: 'pages'
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   # Single deploy job since we're just deploying
@@ -57,3 +58,52 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verify the deployed page
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          set -euo pipefail
+
+          # A green deploy used to be compatible with a white page, so check what
+          # the CDN actually serves. It needs a moment to pick the deploy up.
+          html=""
+          for attempt in $(seq 1 12); do
+            if page=$(curl -fsSL -H 'Cache-Control: no-cache' "${PAGE_URL}?cb=${GITHUB_RUN_ID}-${attempt}"); then
+              if grep -q '/assets/index-.*\.js' <<<"$page"; then
+                html="$page"
+                break
+              fi
+              echo "Attempt ${attempt}: page served, but no hashed bundle in it yet."
+            else
+              echo "Attempt ${attempt}: page not reachable yet."
+            fi
+            sleep 5
+          done
+
+          if [ -z "$html" ]; then
+            echo "::error::${PAGE_URL} never served a built page."
+            exit 1
+          fi
+
+          # The specific breakage this guards against: Pages serving the unbuilt
+          # repo root, whose index.html still points at the Vite dev entry.
+          if grep -q 'src/main\.tsx' <<<"$html"; then
+            echo "::error::${PAGE_URL} is serving unbuilt source (index.html references src/main.tsx)."
+            exit 1
+          fi
+
+          bundle=$(grep -o '/assets/index-[A-Za-z0-9_-]*\.js' <<<"$html" | head -1 || true)
+          if [ -z "$bundle" ]; then
+            echo "::error::Could not find a hashed bundle reference in ${PAGE_URL}."
+            exit 1
+          fi
+
+          base="${PAGE_URL%/}"
+          for path in "$bundle" /repos.json; do
+            if ! curl -fsS -o /dev/null -H 'Cache-Control: no-cache' "${base}${path}?cb=${GITHUB_RUN_ID}"; then
+              echo "::error::${base}${path} is not reachable from the deployed site."
+              exit 1
+            fi
+          done
+
+          echo "Verified ${PAGE_URL} serves ${bundle} and repos.json."
