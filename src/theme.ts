@@ -20,15 +20,18 @@ const bodyFont = '"Montserrat Variable", system-ui, -apple-system, "Segoe UI", s
 declare module "@mui/material/styles" {
     interface TypographyVariants {
         tagline: CSSProperties;
+        lead: CSSProperties;
     }
     interface TypographyVariantsOptions {
         tagline?: CSSProperties;
+        lead?: CSSProperties;
     }
 }
 
 declare module "@mui/material/Typography" {
     interface TypographyPropsVariantOverrides {
         tagline: true;
+        lead: true;
     }
 }
 
@@ -54,16 +57,25 @@ const theme = createTheme({
         h6: { ...display, fontSize: "1.25rem", lineHeight: 1.2 },
         // The line under the name in the hero.
         tagline: { fontFamily: bodyFont, fontWeight: 400, fontSize: "clamp(1.5rem, 5vw, 2.75rem)", lineHeight: 1.15 },
+        // The positioning sentence under the tagline: one step above body copy.
+        lead: { fontFamily: bodyFont, fontWeight: 400, fontSize: "1.125rem", lineHeight: 1.6 },
         body1: { fontSize: "1rem", lineHeight: 1.6 },
         body2: { fontSize: "0.875rem", lineHeight: 1.5 },
         button: { textTransform: "none", fontWeight: 600 },
     },
     components: {
         MuiTypography: {
-            defaultProps: { variantMapping: { tagline: "p" } },
+            defaultProps: { variantMapping: { tagline: "p", lead: "p" } },
         },
         MuiCard: {
             defaultProps: { variant: "outlined" },
+        },
+        MuiButton: {
+            styleOverrides: {
+                // MUI's default outlined border is currentColor at 0.5 alpha, which lands
+                // near 2.8:1 on the page background, under the 3:1 floor for non-text contrast.
+                outlinedPrimary: { borderColor: "rgba(51, 51, 51, 0.7)" },
+            },
         },
         MuiLink: {
             defaultProps: { underline: "hover" },

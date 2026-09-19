@@ -2,25 +2,21 @@ import React from "react";
 import { AppBar, Button, Container, IconButton, Toolbar } from "@mui/material";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
+import { profile } from "../data/profile.ts";
 
 const Header: React.FC = () => {
     return (
         <AppBar position="sticky" elevation={0}>
             <Container maxWidth="lg">
                 <Toolbar disableGutters sx={{ justifyContent: "flex-end", gap: 0.5 }}>
-                    <Button
-                        color="inherit"
-                        href={`${import.meta.env.BASE_URL}Gilmartin_Resume.pdf`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
+                    <Button color="inherit" href={profile.resumeUrl} target="_blank" rel="noopener noreferrer">
                         Resume
                     </Button>
                     <IconButton
                         size="large"
                         color="inherit"
                         aria-label="LinkedIn profile"
-                        href="https://www.linkedin.com/in/ggilmartin"
+                        href={profile.linkedInUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -30,7 +26,7 @@ const Header: React.FC = () => {
                         size="large"
                         color="inherit"
                         aria-label="GitHub profile"
-                        href="https://github.com/TheEnigmaThatIsMe"
+                        href={profile.gitHubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                     >
