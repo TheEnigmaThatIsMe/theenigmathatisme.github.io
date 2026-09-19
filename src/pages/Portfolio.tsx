@@ -6,6 +6,8 @@ import { PortfolioItem } from "../components/PortfolioItem.tsx";
 // Generated at build time by scripts/fetch-repos.mjs.
 const REPO_DATA_URL = `${import.meta.env.BASE_URL}repos.json`;
 
+const CARD_GRID = { xs: 12, sm: 6, md: 4 };
+
 const Portfolio: React.FC = () => {
     const [repos, setRepos] = useState<Repo[] | null>(null);
     const [loadFailed, setLoadFailed] = useState(false);
@@ -29,7 +31,7 @@ const Portfolio: React.FC = () => {
     let content: React.ReactNode;
     if (loadFailed) {
         content = (
-            <Typography variant="body1" sx={{ fontFamily: "Montserrat Variable" }}>
+            <Typography variant="body1">
                 The project list could not be loaded. You can browse everything on{" "}
                 <Link href="https://github.com/TheEnigmaThatIsMe?tab=repositories" target="_blank" rel="noopener noreferrer">
                     GitHub
@@ -41,23 +43,19 @@ const Portfolio: React.FC = () => {
         content = (
             <Grid container spacing={3} aria-busy="true" aria-label="Loading projects">
                 {[0, 1, 2].map((i) => (
-                    <Grid size={{ xs: 12, sm: 4 }} key={i}>
+                    <Grid size={CARD_GRID} key={i}>
                         <Skeleton variant="rounded" height={160} />
                     </Grid>
                 ))}
             </Grid>
         );
     } else if (repos.length === 0) {
-        content = (
-            <Typography variant="body1" sx={{ fontFamily: "Montserrat Variable" }}>
-                No projects to show yet.
-            </Typography>
-        );
+        content = <Typography variant="body1">No projects to show yet.</Typography>;
     } else {
         content = (
             <Grid container spacing={3}>
                 {repos.map((repo) => (
-                    <Grid size={{ xs: 12, sm: 4 }} key={repo.id}>
+                    <Grid size={CARD_GRID} key={repo.id}>
                         <PortfolioItem repo={repo} />
                     </Grid>
                 ))}
@@ -66,13 +64,13 @@ const Portfolio: React.FC = () => {
     }
 
     return (
-        <Box component="section" sx={{ padding: "2rem" }}>
-            <Typography variant="h4" component="h2" align="left" sx={{ marginBottom: "1em", fontFamily: "Bebas Neue" }}>
+        <Box component="section">
+            <Typography variant="h2" gutterBottom>
                 Personal Portfolio
             </Typography>
-            <Typography variant="body1" align="left" sx={{ marginBottom: "2em", fontFamily: "Montserrat Variable" }}>
-                Explore my development projects, showcasing my skills in web development, software engineering, and problem solving.
-                Each project highlights my work across both front-end and backend development.
+            <Typography variant="body1" color="text.secondary" sx={{ maxWidth: "68ch", mb: 4 }}>
+                Explore my development projects, showcasing my skills in web development, software engineering, and
+                problem solving. Each project highlights my work across both front-end and backend development.
             </Typography>
             {content}
         </Box>

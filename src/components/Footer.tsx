@@ -1,29 +1,23 @@
 import React from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Box, Typography } from "@mui/material";
-import {red} from "@mui/material/colors";
+import { red } from "@mui/material/colors";
 
 const Footer: React.FC = () => {
     return (
         <Box
             component="footer"
-            sx={{
-                backgroundColor: "#333333",
-                color: "#FAFAFA",
-                textAlign: "center",
-                paddingTop: "1rem",
-                paddingBottom: "1rem",
-                bottom: 0,
-                left: 0,
-                width: "100%", // Ensure it spans the entire width
-            }}
+            sx={{ bgcolor: "primary.main", color: "primary.contrastText", textAlign: "center", py: 2 }}
         >
             <Typography variant="body1">
-                Made with <FavoriteIcon sx={{ color: red["500"] }} /> in the U.S.A.
+                Made with{" "}
+                <FavoriteIcon
+                    titleAccess="love"
+                    sx={{ color: red[500], fontSize: "1em", verticalAlign: "-0.125em" }}
+                />{" "}
+                in the U.S.A.
             </Typography>
-            <Typography variant="body1">
-                &copy; { new Date().getFullYear() } George Gilmartin
-            </Typography>
+            <Typography variant="body1">&copy; {new Date().getFullYear()} George Gilmartin</Typography>
         </Box>
     );
 };
