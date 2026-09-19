@@ -1,6 +1,5 @@
 import React from "react";
-import {Box, Card, CardContent, Typography} from "@mui/material";
-import { Grid } from "@mui/material";
+import { Box, Card, CardContent, Grid, Link, Stack, Typography } from "@mui/material";
 
 const Highlights: React.FC = () => {
     const projects = [
@@ -70,41 +69,48 @@ const Highlights: React.FC = () => {
     ];
 
     return (
-        <Box
-            component="section"
-            sx={{
-                padding: "0.5rem 2rem 0.5rem 2rem",
-            }}
-        >
-            <Typography variant="h4" component="h2" gutterBottom align="left" sx={{ fontFamily: "Bebas Neue" }}>
+        <Box component="section">
+            <Typography variant="h2" gutterBottom>
                 Career Highlights
             </Typography>
-            <Typography variant="body1" color="textSecondary" component="p" sx={{ fontFamily: "Montserrat Variable", marginBottom:"1em" }}>
-                During my time at N3TWORK Studios, I was a key contributor to the backend development of <a href="https://www.n3twork.com/triumph/" target="_blank" rel="noopener noreferrer">Triumph: Go Infinite</a>, a mobile RPG built around strategic hero and gear collection, dynamic weekly events, and engaging gameplay. 
-                I also led backend efforts on the AI Game Feed, a scalable content delivery system powering personalized updates and recommendations across live titles. 
-                Additionally, I contributed to the redesign of <a href="https://www.legendaryheroesunchained.com/home" target="_blank" rel="noopener noreferrer">Legendary Heroes Unchained</a>, expanding into Unity and Web3 by integrating smart contracts written in Solidity to enable on-chain progression and asset ownership.
-            </Typography>
-            <Typography variant="body1" color="textSecondary" component="p" sx={{ fontFamily: "Montserrat Variable", marginBottom:"1em" }}>
-                At AT&T, I led and contributed to multiple high-impact projects that drove efficiency, reduced costs,
-                and improved operational resilience across various enterprise domains. Through these initiatives,
-                I played a key role in saving over $30M annually, optimizing critical business operations,
-                and fortifying AT&T’s technical infrastructure.
-            </Typography>
+            <Stack spacing={2} sx={{ maxWidth: "68ch", mb: 4 }}>
+                <Typography variant="body1" color="text.secondary">
+                    During my time at N3TWORK Studios, I was a key contributor to the backend development of{" "}
+                    <Link href="https://www.n3twork.com/triumph/" target="_blank" rel="noopener noreferrer">
+                        Triumph: Go Infinite
+                    </Link>
+                    , a mobile RPG built around strategic hero and gear collection, dynamic weekly events, and engaging
+                    gameplay. I also led backend efforts on the AI Game Feed, a scalable content delivery system
+                    powering personalized updates and recommendations across live titles. Additionally, I contributed to
+                    the redesign of{" "}
+                    <Link href="https://www.legendaryheroesunchained.com/home" target="_blank" rel="noopener noreferrer">
+                        Legendary Heroes Unchained
+                    </Link>
+                    , expanding into Unity and Web3 by integrating smart contracts written in Solidity to enable
+                    on-chain progression and asset ownership.
+                </Typography>
+                <Typography variant="body1" color="text.secondary">
+                    At AT&T, I led and contributed to multiple high-impact projects that drove efficiency, reduced costs,
+                    and improved operational resilience across various enterprise domains. Through these initiatives, I
+                    played a key role in saving over $30M annually, optimizing critical business operations, and
+                    fortifying AT&T’s technical infrastructure.
+                </Typography>
+            </Stack>
             <Grid container spacing={3}>
                 {projects.map((project) => (
-                    <Grid size={{ xs: 12, sm: 4 }} key={project.title}>
-                        <Card sx={{ height: "100%", backgroundColor: "#fafafa" }}>
+                    <Grid size={{ xs: 12, sm: 6, md: 4 }} key={project.title}>
+                        <Card sx={{ height: "100%" }}>
                             <CardContent>
-                                <Typography variant="h6" component="h3" sx={{ fontFamily: "Bebas Neue" }}>
+                                <Typography variant="h3">
                                     {project.title} - {project.company} ({project.location})
                                 </Typography>
-                                <Typography variant="subtitle2" component="p" sx={{ fontFamily: "Montserrat Variable" }}>
+                                <Typography variant="subtitle2" component="p">
                                     {project.position}
                                 </Typography>
-                                <Typography variant="body2" sx={{ paddingTop: "1em", fontFamily: "Montserrat Variable" }}>
+                                <Typography variant="body2" component="p" sx={{ mt: 2 }}>
                                     Technologies: {project.technologies}
                                 </Typography>
-                                <Typography variant="body2" color="textSecondary" component="p" sx={{ paddingTop: "1em", fontFamily: "Montserrat Variable" }}>
+                                <Typography variant="body2" color="text.secondary" component="p" sx={{ mt: 2 }}>
                                     {project.description}
                                 </Typography>
                             </CardContent>
